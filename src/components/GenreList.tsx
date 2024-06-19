@@ -1,6 +1,6 @@
 import React from "react";
 import useGenre from "../hooks/useGenre";
-import { HStack, List, ListItem, Image, Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
 import getCroppedImageURL from "../services/image-url";
 
 interface Props {
@@ -10,8 +10,11 @@ interface Props {
 const GenreList: React.FC<Props> = () => {
   // Implement your component logic here
   const { DATA: genres, error, isLoading } = useGenre();
+  if (error) {
+    return null;
+  }
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   return (
     <List>
