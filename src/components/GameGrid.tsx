@@ -3,9 +3,14 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
+import { Genre } from "../hooks/useGenre";
 
-const GameGrid = () => {
-  const { DATA: games, error, isLoading } = useGames();
+interface Props {
+  selectedGenre: null | Genre;
+}
+
+const GameGrid = ({ selectedGenre }: Props) => {
+  const { DATA: games, error, isLoading } = useGames(selectedGenre);
   const skeletons = Array.from({ length: 6 }).map((_, i) => (
     <GameCardContainer key={i}>
       <GameCardSkeleton />
