@@ -1,5 +1,7 @@
 import React from "react";
 import useGenre from "../hooks/useGenre";
+import { HStack, List, ListItem, Image, Text } from "@chakra-ui/react";
+import getCroppedImageURL from "../services/image-url";
 
 interface Props {
   // Define your component's props here
@@ -12,11 +14,20 @@ const GenreList: React.FC<Props> = () => {
     return <div>Loading...</div>;
   }
   return (
-    <ul>
+    <List>
       {genres.map((genre) => (
-        <li key={genre.id}>{genre.name}</li>
+        <ListItem key={genre.id} paddingY="5px">
+          <HStack>
+            <Image
+              boxSize="34px"
+              borderRadius={8}
+              src={getCroppedImageURL(genre.image_background)}
+            />
+            <Text fontSize={"lg"}>{genre.name}</Text>
+          </HStack>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 };
 
