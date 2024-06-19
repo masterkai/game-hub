@@ -12,7 +12,16 @@ function GameCard({ game }: Props) {
     <Card width={300} borderRadius={10} overflow={"hidden"}>
       <Image src={getCroppedImageURL(game.background_image)} />
       <CardBody>
-        <Heading fontSize={"2xl"} fontWeight={"bold"} color={"gray.100"}>
+        <Heading
+          style={{
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+          fontSize={"2xl"}
+          fontWeight={"bold"}
+          color={"gray.100"}
+        >
           {game.name}
         </Heading>
         <PlatformIconList

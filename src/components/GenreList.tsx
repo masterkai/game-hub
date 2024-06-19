@@ -1,12 +1,13 @@
 import React from "react";
 import useGenre from "../hooks/useGenre";
+
 interface Props {
   // Define your component's props here
 }
 
 const GenreList: React.FC<Props> = () => {
   // Implement your component logic here
-  const { genres, error, isLoading } = useGenre();
+  const { DATA: genres, error, isLoading } = useGenre();
   if (isLoading) {
     return <div>Loading...</div>;
   }
