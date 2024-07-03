@@ -19,6 +19,8 @@ const useDATA = <T>(
 
   useEffect(
     () => {
+      console.log("deps", deps);
+
       const controller = new AbortController();
       setLoading(true);
       apiClient
