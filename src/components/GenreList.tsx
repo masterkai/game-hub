@@ -1,13 +1,13 @@
 import React from "react";
 import useGenre, { Genre } from "../hooks/useGenre";
 import {
-  Button,
+  Button, Heading,
   HStack,
   Image,
   List,
   ListItem,
   Spinner,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import getCroppedImageURL from "../services/image-url";
 
@@ -27,16 +27,23 @@ const GenreList: React.FC<Props> = ({ onSelectedGenre, selectedGenre }) => {
     return <Spinner />;
   }
   return (
-    <List>
+    <>
+      <Heading as="h2" size="lg" marginBottom={5}>
+        Genres
+      </Heading>
+      <List>
       {genres.map((genre) => (
         <ListItem key={genre.id} paddingY="5px">
           <HStack>
             <Image
               boxSize="34px"
+              objectFit="cover"
               borderRadius={8}
               src={getCroppedImageURL(genre.image_background)}
             />
             <Button
+              whiteSpace="normal"
+              textAlign="left"
               fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
               onClick={() => onSelectedGenre(genre)}
               variant="link"
@@ -47,7 +54,7 @@ const GenreList: React.FC<Props> = ({ onSelectedGenre, selectedGenre }) => {
           </HStack>
         </ListItem>
       ))}
-    </List>
+    </List></>
   );
 };
 
