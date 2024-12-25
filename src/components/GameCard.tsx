@@ -9,7 +9,7 @@ interface Props {
 
 function GameCard({ game }: Props) {
   return (
-    <Card borderRadius={10} overflow={"hidden"}>
+    <Card borderRadius={10} variant='elevated' overflow={"hidden"}>
       <Image src={getCroppedImageURL(game.background_image)} />
       <CardBody>
         <HStack justifyContent="space-between" marginBottom={3}>
@@ -26,7 +26,6 @@ function GameCard({ game }: Props) {
           }}
           fontSize={"2xl"}
           fontWeight={"bold"}
-          color={"gray.100"}
         >
           {game.name}
         </Heading>
