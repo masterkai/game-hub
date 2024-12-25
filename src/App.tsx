@@ -38,11 +38,7 @@ function App() {
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
       <GridItem area={"nav"}>
-        <NavBar
-          onSearch={(searchQuery) =>
-            setGameQuery({ ...gameQuery, searchQuery })
-          }
-        />
+        <NavBar />
       </GridItem>
       <Show above="lg">
         <GridItem area={"aside"} paddingX={5}>
@@ -53,7 +49,6 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area={"main"}>
-        <GameHeading gameQuery={gameQuery} />
         <Flex gap={3} paddingLeft={2} marginBottom={5}>
           <PlatformSelector
             selectedPlatform={gameQuery.platform}
